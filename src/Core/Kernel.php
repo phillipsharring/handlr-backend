@@ -8,6 +8,7 @@ use Handlr\Core\Container\Container;
 use Handlr\Core\Routes\Router;
 use Handlr\Database\Db;
 use Handlr\Log\Logger;
+use Handlr\Mail\Mailer;
 use Handlr\Pipes\ErrorPipe;
 use Handlr\Pipes\LogPipe;
 use Handlr\Session\DatabaseSessionDriver;
@@ -120,6 +121,7 @@ final class Kernel
         $this->registerLogger();
         $this->registerDatabase();
         $this->registerSession();
+        $this->registerMailer();
     }
 
     /**
@@ -151,6 +153,14 @@ final class Kernel
         $sessionHandler = new DatabaseSessionDriver($db);
         $session = new Session($sessionHandler);
         $this->container->singleton(SessionInterface::class, $session);
+    }
+
+    /**
+     * Register the Mailer singleton (lazy — resolved on first use).
+     */
+    private function registerMailer(): void
+    {
+        $this->container->bind(Mailer::class, Mailer::class);
     }
 
     /**

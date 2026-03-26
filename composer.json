@@ -28,6 +28,9 @@
     "pestphp/pest-plugin": "^4.0",
     "roave/security-advisories": "dev-latest"
   },
+  "suggest": {
+    "aws/aws-sdk-php": "Required for SES mail transport (^3.0)"
+  },
   "autoload": {
     "psr-4": {
       "Handlr\\": "src/"
