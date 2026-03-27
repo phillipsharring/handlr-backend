@@ -104,6 +104,7 @@ class SmtpTransport implements MailTransportInterface
         $headers .= "Subject: {$message->getSubject()}\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $headers .= "Content-Transfer-Encoding: 7bit\r\n";
         $headers .= "Date: " . date('r') . "\r\n";
 
         return $headers;
