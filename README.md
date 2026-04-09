@@ -1,5 +1,7 @@
 # Handlr Framework
 
+![Handlr](handlr.png)
+
 A lightweight PHP middleware-style framework built around the **Pipe + Handler** pattern.
 
 ## Installation
